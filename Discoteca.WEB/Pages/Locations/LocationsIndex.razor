@@ -1,0 +1,56 @@
+﻿@page "/locations"
+@using Discoteca.Shared.Entities;
+@using Discoteca.WEB.Repositories;
+
+@inject IRepository repository
+
+<h3>LocationsIndex</h3>
+
+<div class="mb-3">
+
+    <a class="btn btn-primary" href="/locations/create"> New Location </a>
+</div>
+
+<GenericList MyList="Locations">
+
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var location in Locations!)
+                {
+                    <tr>
+                        <td>
+                            @location.TipoMesa
+                        </td>
+                        <td>
+                            <a class="btn btn-warning">Editar</a>
+                            <button class="btn btn-danger">Borrar</button>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </Body>
+
+</GenericList>
+
+@code {
+
+    public List<Location>? Locations { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var responseHttp = await repository.Get<List<Location>>("/api/locations");
+        Locations = responseHttp.Response!;
+    }
+
+}

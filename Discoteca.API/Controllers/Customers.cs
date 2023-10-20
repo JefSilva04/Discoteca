@@ -21,7 +21,7 @@ namespace Discoteca.API.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            return Ok(await _context.Attentions.ToListAsync());
+            return Ok(await _context.Customers.ToListAsync());
         }
 
         // Get por parametro
@@ -29,7 +29,7 @@ namespace Discoteca.API.Controllers
         public async Task<ActionResult> Get(int id)
         {
             //200 Ok
-            var customer = await _context.Attentions.FirstOrDefaultAsync(x => x.Id == id);
+            var customer = await _context.Customers.FirstOrDefaultAsync(x => x.Id == id);
 
             if (customer == null)
             {
@@ -60,7 +60,7 @@ namespace Discoteca.API.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var AffectedRow = await _context.Attentions.Where(x => x.Id == id).ExecuteDeleteAsync();
+            var AffectedRow = await _context.Customers.Where(x => x.Id == id).ExecuteDeleteAsync();
 
             if (AffectedRow == 0)
             {

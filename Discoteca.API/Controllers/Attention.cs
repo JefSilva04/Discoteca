@@ -7,7 +7,7 @@ using Discoteca.Shared.Entities;
 namespace Discoteca.API.Controllers
 {
     [ApiController]
-    [Route("api/attention")]
+    [Route("api/attentions")]
     public class AttentionsController : ControllerBase
     {
         private readonly DataContext _context;
