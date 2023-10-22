@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Discoteca.Shared.Entities
@@ -27,7 +29,9 @@ namespace Discoteca.Shared.Entities
         [Required]
         public string FechaNacimiento { get; set; } = null;
 
-        public ICollection<Attention> Attention { get; set; }
+        [NotMapped]
+        [JsonIgnore]
+        public ICollection<Attention> Attentions { get; set; }
 
 
     }

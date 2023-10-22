@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Discoteca.Shared.Entities
@@ -17,6 +18,7 @@ namespace Discoteca.Shared.Entities
         [Required]
         public float CostoProducto { get; set; }
 
+        [JsonIgnore]
         public ICollection<ProductEvent> ProductEvent { get; set; }
     }
 }

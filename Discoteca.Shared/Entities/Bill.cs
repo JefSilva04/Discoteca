@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Discoteca.Shared.Entities
@@ -15,6 +16,7 @@ namespace Discoteca.Shared.Entities
         [Required]
         public float Costo { get; set; }
 
+        [JsonIgnore]
         public ICollection<Attention> Attention { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Discoteca.Shared.Entities
@@ -14,6 +15,7 @@ namespace Discoteca.Shared.Entities
         [Required]
         public string TipoMesa { get; set; } = null;
 
+        [JsonIgnore]
         public ICollection<Attention> Attention { get; set; }
     }
 }
