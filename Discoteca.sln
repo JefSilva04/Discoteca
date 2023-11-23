@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discoteca.Shared", "Discoteca.Shared\Discoteca.Shared.csproj", "{D6A3BAC2-4BDB-44D8-8EA9-ED7DBF33BDF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discoteca.Shared", "Discoteca.Shared\Discoteca.Shared.csproj", "{D6A3BAC2-4BDB-44D8-8EA9-ED7DBF33BDF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discoteca.API", "Discoteca.API\Discoteca.API.csproj", "{A5EE4561-2A7A-496B-A61F-D48F62137D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discoteca.API", "Discoteca.API\Discoteca.API.csproj", "{A5EE4561-2A7A-496B-A61F-D48F62137D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discoteca.WEB", "Discoteca.WEB\Discoteca.WEB.csproj", "{E2D245C7-CE07-4BF7-B4B1-66D4FD6A2AD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discoteca.WEB", "Discoteca.WEB\Discoteca.WEB.csproj", "{E2D245C7-CE07-4BF7-B4B1-66D4FD6A2AD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

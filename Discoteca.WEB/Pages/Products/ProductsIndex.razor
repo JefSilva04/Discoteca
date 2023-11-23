@@ -1,0 +1,56 @@
+﻿@page "/products"
+@using Discoteca.Shared.Entities;
+@using Discoteca.WEB.Repositories;
+
+@inject IRepository repository
+
+<h3>ProductsIndex</h3>
+
+<div class="mb-3">
+
+    <a class="btn btn-primary" href="/products/create"> New Product </a>
+</div>
+
+<GenericList MyList="Products">
+
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Products!)
+                {
+                    <tr>
+                        <td>
+                            @product.NombreProducto
+                        </td>
+                        <td>
+                            <a class="btn btn-warning">Editar</a>
+                            <button class="btn btn-danger">Borrar</button>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </Body>
+
+</GenericList>
+
+@code {
+
+    public List<Product>? Products { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var responseHttp = await repository.Get<List<Product>>("/api/products");
+        Products = responseHttp.Response!;
+    }
+
+}

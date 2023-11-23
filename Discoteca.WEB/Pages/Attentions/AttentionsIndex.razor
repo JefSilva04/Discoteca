@@ -1,0 +1,56 @@
+﻿@page "/attentions"
+@using Discoteca.Shared.Entities;
+@using Discoteca.WEB.Repositories;
+
+@inject IRepository repository
+
+<h3>AttentionsIndex</h3>
+
+<div class="mb-3">
+
+    <a class="btn btn-primary" href="/attentions/create"> New Attention </a>
+</div>
+
+<GenericList MyList="Attentions">
+
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Attention</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var attention in Attentions!)
+                {
+                    <tr>
+                        <td>
+                            @attention.EventoId
+                        </td>
+                        <td>
+                            <a class="btn btn-warning">Editar</a>
+                            <button class="btn btn-danger">Borrar</button>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </Body>
+
+</GenericList>
+
+@code {
+
+    public List<Attention>? Attentions { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var responseHttp = await repository.Get<List<Attention>>("/api/attentions");
+        Attentions = responseHttp.Response!;
+    }
+
+}

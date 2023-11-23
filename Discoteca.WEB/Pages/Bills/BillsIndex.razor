@@ -1,0 +1,56 @@
+﻿@page "/bills"
+@using Discoteca.Shared.Entities;
+@using Discoteca.WEB.Repositories;
+
+@inject IRepository repository
+
+<h3>BillsIndex</h3>
+
+<div class="mb-3">
+
+    <a class="btn btn-primary" href="/bills/create"> New Bill </a>
+</div>
+
+<GenericList MyList="Bills">
+
+    <Body>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Bill</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var bill in Bills!)
+                {
+                    <tr>
+                        <td>
+                            @bill.Costo
+                        </td>
+                        <td>
+                            <a class="btn btn-warning">Editar</a>
+                            <button class="btn btn-danger">Borrar</button>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </Body>
+
+</GenericList>
+
+@code {
+
+    public List<Bill>? Bills { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var responseHttp = await repository.Get<List<Bill>>("/api/bills");
+        Bills = responseHttp.Response!;
+    }
+
+}
