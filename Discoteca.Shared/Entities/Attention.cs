@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -30,6 +31,10 @@ namespace Discoteca.Shared.Entities
         [JsonIgnore]
         public Bill Bill { get; set; }
 
+        public string DocumentId { get; set; }
+
+        [JsonIgnore]
+        public User User { get; set; }
 
         [JsonIgnore]
         public ICollection<ProductEvent> ProductEvent {  get; set; } 
